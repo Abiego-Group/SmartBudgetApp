@@ -1,5 +1,6 @@
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.CanvasBasedWindow
+import com.hellguy39.smartbudget.App
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
