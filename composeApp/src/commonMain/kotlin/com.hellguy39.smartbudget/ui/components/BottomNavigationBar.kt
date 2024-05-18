@@ -35,9 +35,6 @@ fun BottomNavigationBar(
                 onClick = {
                     navController.navigate(navItem.route)
                 },
-                label = {
-                    Text(text = stringResource(navItem.labelRes))
-                },
                 icon = {
                     Icon(
                         painter = painterResource(navItem.iconRes),
