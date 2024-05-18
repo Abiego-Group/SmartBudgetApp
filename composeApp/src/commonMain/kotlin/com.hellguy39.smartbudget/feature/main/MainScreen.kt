@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 @Composable
 fun MainScreen(
     uiState: MainUiState
-) {
+    ) {
     Scaffold(
         topBar = {
             TopAppBar(

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun MainRoute(
-    viewModel: MainViewModel = viewModel { MainViewModel() },
+    viewModel: MainViewModel = viewModel { MainViewModel() }
 ) {
     val uiState by viewModel.uiState.collectAsState()
 

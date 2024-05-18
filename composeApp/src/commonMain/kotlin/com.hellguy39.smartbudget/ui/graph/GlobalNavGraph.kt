@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.hellguy39.smartbudget.feature.login.LoginRoute
 import com.hellguy39.smartbudget.feature.main.MainRoute
 
 @Composable
@@ -24,13 +25,22 @@ fun GlobalNavGraph(
     Scaffold { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = GlobalNavGraphScreen.Main.route,
+            startDestination = GlobalNavGraphScreen.Auth.route,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
             composable(route = GlobalNavGraphScreen.Main.route) {
                 MainRoute()
+            }
+            composable(route = GlobalNavGraphScreen.Auth.route) {
+                AuthNavGraph(
+                    navigateToMain = {
+                        navController.navigate(route = GlobalNavGraphScreen.Main.route) {
+                            popUpToCurrent(navController)
+                        }
+                    }
+                )
             }
         }
     }
@@ -39,5 +49,7 @@ fun GlobalNavGraph(
 sealed class GlobalNavGraphScreen(val route: String) {
 
     data object Main: GlobalNavGraphScreen("Main")
+
+    data object Auth: GlobalNavGraphScreen("Auth")
 
 }
