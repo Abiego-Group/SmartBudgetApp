@@ -1,4 +1,4 @@
-package com.hellguy39.smartbudget.feature.main
+package com.hellguy39.smartbudget.feature.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -6,12 +6,12 @@ import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun MainRoute(
-    viewModel: MainViewModel = viewModel { MainViewModel() }
+fun HomeRoute(
+    viewModel: HomeViewModel = viewModel { HomeViewModel() }
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    MainScreen(
+    HomeScreen(
         uiState = uiState
     )
 }

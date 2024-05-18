@@ -35,7 +35,7 @@ fun SmartBudgetApp() {
 fun DebugPanel() {
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.BottomEnd
+        contentAlignment = Alignment.TopEnd
     ) {
         Surface(
             modifier = Modifier.alpha(0.3f),

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My awesome app</string>
+
+    <string name="label_home">Home</string>
+    <string name="label_wallet">Wallet</string>
+    <string name="label_regular">Regular</string>
+    <string name="label_settings">Settings</string>
+
+</resources>

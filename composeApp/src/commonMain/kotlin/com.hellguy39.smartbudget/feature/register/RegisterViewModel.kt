@@ -2,8 +2,8 @@ package com.hellguy39.smartbudget.feature.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hellguy39.smartbudget.feature.login.AuthRepositoryImpl
-import com.hellguy39.smartbudget.feature.login.LoginParams
+import com.hellguy39.smartbudget.di.AppContainer
+import com.hellguy39.smartbudget.model.RegisterParams
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class RegisterViewModel : ViewModel() {
 
-    private val authRepository = AuthRepositoryImpl()
+    private val authRepository = AppContainer.authRepository
 
     private val _uiState = MutableStateFlow(RegisterUiState())
     val uiState = _uiState.asStateFlow()
@@ -49,9 +49,4 @@ data class RegisterUiState(
     val isAuthenticated: Boolean = false,
     val login: String = "",
     val password: String = "",
-)
-
-data class RegisterParams(
-    val login: String,
-    val password: String,
 )

@@ -2,7 +2,8 @@ package com.hellguy39.smartbudget.feature.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hellguy39.smartbudget.feature.register.RegisterParams
+import com.hellguy39.smartbudget.di.AppContainer
+import com.hellguy39.smartbudget.model.LoginParams
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -10,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
-    private val authRepository = AuthRepositoryImpl()
+    private val authRepository = AppContainer.authRepository
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState = _uiState.asStateFlow()
@@ -62,39 +63,3 @@ data class LoginUiState(
     val login: String = "",
     val password: String = ""
 )
-
-data class LoginParams(
-    val login: String,
-    val password: String
-)
-
-interface AuthRepository {
-
-    suspend fun register(registerParams: RegisterParams): Boolean
-
-    suspend fun login(loginParams: LoginParams): Boolean
-
-    suspend fun isAuthenticated(): Boolean
-
-    suspend fun logout()
-
-}
-
-class AuthRepositoryImpl()  : AuthRepository {
-    override suspend fun register(registerParams: RegisterParams): Boolean {
-        return true
-    }
-
-    override suspend fun login(loginParams: LoginParams): Boolean {
-        return true
-
-    }
-
-    override suspend fun isAuthenticated(): Boolean {
-        return false
-    }
-
-    override suspend fun logout() {
-    }
-
-}
