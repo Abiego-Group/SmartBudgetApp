@@ -29,7 +29,10 @@ import smartbudgetapp.composeapp.generated.resources.ic_category_filled_24
 import smartbudgetapp.composeapp.generated.resources.ic_transaction_filled_24
 
 @Composable
-fun TransactionCard() {
+fun TransactionCard(
+    iconTint: Color = Color.Black,
+    iconBackTint: Color = Color(0xFFE9E5FF)
+) {
     Box(
         modifier = Modifier.clip(RoundedCornerShape(16.dp))
     ) {
@@ -44,7 +47,7 @@ fun TransactionCard() {
             ) {
                 Box(
                     modifier = Modifier.size(48.dp).background(
-                        color = Color(0xFFE9E5FF),
+                        color = iconBackTint,
                         shape = RoundedCornerShape(16.dp)
                     ),
                     contentAlignment = Alignment.Center
@@ -53,7 +56,7 @@ fun TransactionCard() {
                         modifier = Modifier.size(24.dp),
                         painter = painterResource(Res.drawable.ic_transaction_filled_24),
                         contentDescription = null,
-                        tint = Color.Black
+                        tint = iconTint
                     )
                 }
                 Spacer(Modifier.width(UiSpace.large))

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.CircularProgressIndicator
@@ -52,20 +53,23 @@ fun LoginScreen(
             verticalArrangement = Arrangement.spacedBy(UiSpace.small),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                modifier = Modifier.weight(1f),
-                text = "ДЕЛАЕМ\nФИНАНСЫ\nПРОЗРАЧНЕЕ",
-                fontFamily = actayWideFamily(),
-                style = MaterialTheme.typography.displaySmall,
-                color = Color.White
-            )
-            Image(
-                modifier = Modifier.weight(1f),
-                painter = painterResource(Res.drawable.sign_to_number_text_field),
-                contentDescription = null
-            )
+            Column(
+                modifier = Modifier
+            ) {
+                Text(
+                    text = "ДЕЛАЕМ\nФИНАНСЫ\nПРОЗРАЧНЕЕ",
+                    fontFamily = actayWideFamily(),
+                    style = MaterialTheme.typography.displaySmall,
+                    color = Color.White
+                )
+                Image(
+                    modifier = Modifier.sizeIn(200.dp, 200.dp).align(Alignment.End),
+                    painter = painterResource(Res.drawable.sign_to_number_text_field),
+                    contentDescription = null
+                )
+            }
             Column (
-                modifier = Modifier.weight(1f),
+                modifier = Modifier,
                 verticalArrangement = Arrangement.spacedBy(UiSpace.large),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
