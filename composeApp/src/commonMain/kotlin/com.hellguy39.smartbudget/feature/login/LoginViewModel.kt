@@ -31,8 +31,7 @@ class LoginViewModel : ViewModel() {
         viewModelScope.launch {
 
             val params = LoginParams(
-                login = _uiState.value.login,
-                password = _uiState.value.password
+                phoneNumber = _uiState.value.number,
             )
 
             val isAuthenticated = authRepository.login(params)
@@ -43,12 +42,12 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    fun editLogin(login: String) {
-        _uiState.update { state -> state.copy(login = login) }
+    fun editNumber(number: String) {
+        _uiState.update { state -> state.copy(number = number) }
     }
 
     fun editPassword(password: String) {
-        _uiState.update { state -> state.copy(password = password) }
+        //_uiState.update { state -> state.copy(password = password) }
     }
 
     private fun toggleLoading() {
@@ -60,6 +59,5 @@ class LoginViewModel : ViewModel() {
 data class LoginUiState(
     val isLoading: Boolean = false,
     val isAuthenticated: Boolean = false,
-    val login: String = "",
-    val password: String = ""
+    val number: String = ""
 )

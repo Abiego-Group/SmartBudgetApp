@@ -3,15 +3,15 @@ package com.hellguy39.smartbudget.ui.components
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Text
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun BottomNavigationBar(
@@ -23,7 +23,7 @@ fun BottomNavigationBar(
     val navItems = rememberMainBottomNavigationItems()
 
     NavigationBar(
-        modifier = Modifier
+        modifier = Modifier,
     ) {
         navItems.forEach { navItem ->
 
@@ -32,12 +32,17 @@ fun BottomNavigationBar(
 
             NavigationBarItem(
                 selected = isSelected,
+                colors = NavigationBarItemDefaults.colors().copy(
+                    selectedIndicatorColor = Color.Transparent
+                ),
                 onClick = {
                     navController.navigate(navItem.route)
                 },
                 icon = {
                     Icon(
-                        painter = painterResource(navItem.iconRes),
+                        painter = painterResource(
+                            if (isSelected) navItem.selectedIconRes else navItem.unselectedIconRes
+                        ),
                         contentDescription = null
                     )
                 }

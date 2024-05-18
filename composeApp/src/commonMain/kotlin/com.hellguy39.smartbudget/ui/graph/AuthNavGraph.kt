@@ -14,8 +14,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.hellguy39.smartbudget.feature.login.LoginRoute
-import com.hellguy39.smartbudget.feature.register.RegisterRoute
-
 
 @Composable
 fun AuthNavGraph(
@@ -35,13 +33,6 @@ fun AuthNavGraph(
             composable(route = AuthNavGraphScreen.Login.route) {
                 LoginRoute(
                     navigateToMain = navigateToMain,
-                    navigateToRegister = { navController.navigate(AuthNavGraphScreen.Register.route) }
-                )
-            }
-            composable(route = AuthNavGraphScreen.Register.route) {
-                RegisterRoute(
-                    navigateBack = { navController.popBackStack() },
-                    navigateToMain = navigateToMain
                 )
             }
         }
@@ -57,11 +48,7 @@ fun NavOptionsBuilder.popUpToCurrent(navController: NavController) {
 
 sealed class AuthNavGraphScreen(val route: String) {
 
-    data object Auth: AuthNavGraphScreen("Auth")
-
     data object Login: AuthNavGraphScreen("login")
-
-    data object Register: AuthNavGraphScreen("register")
 
 }
 

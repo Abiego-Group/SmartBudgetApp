@@ -9,8 +9,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun LoginRoute(
     loginViewModel: LoginViewModel = viewModel { LoginViewModel() },
-    navigateToMain: () -> Unit,
-    navigateToRegister: () -> Unit
+    navigateToMain: () -> Unit
 ) {
     val uiState by loginViewModel.uiState.collectAsState()
 
@@ -23,8 +22,6 @@ fun LoginRoute(
     LoginScreen(
         uiState = uiState,
         onLoginClick = { loginViewModel.login() },
-        onRegisterClick = { navigateToRegister() },
-        onLoginEdited = { text -> loginViewModel.editLogin(text) },
-        onPasswordEdited = { text -> loginViewModel.editPassword(text) },
+        onNumberEdited = { text -> loginViewModel.editNumber(text) }
     )
 }

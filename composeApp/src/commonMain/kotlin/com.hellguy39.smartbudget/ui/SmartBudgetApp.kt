@@ -27,7 +27,7 @@ fun SmartBudgetApp() {
         ) {
             GlobalNavGraph()
         }
-        DebugPanel()
+        // DebugPanel()
     }
 }
 

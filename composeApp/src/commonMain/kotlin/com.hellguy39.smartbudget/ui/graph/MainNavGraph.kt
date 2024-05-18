@@ -10,6 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.hellguy39.smartbudget.feature.home.HomeRoute
+import com.hellguy39.smartbudget.feature.regular_operations.RegularOperationsRoute
+import com.hellguy39.smartbudget.feature.wallet.WalletRoute
 import com.hellguy39.smartbudget.ui.components.BottomNavigationBar
 
 @Composable
@@ -32,10 +34,10 @@ fun MainNavGraph(
                 HomeRoute()
             }
             composable(MainNavGraphScreen.Wallet.route) {
-
+                WalletRoute()
             }
             composable(MainNavGraphScreen.RegularOperations.route) {
-
+                RegularOperationsRoute()
             }
             composable(MainNavGraphScreen.Settings.route) {
 

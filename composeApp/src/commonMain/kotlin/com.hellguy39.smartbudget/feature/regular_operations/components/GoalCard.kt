@@ -1,4 +1,4 @@
-package com.hellguy39.smartbudget.feature.home.components
+package com.hellguy39.smartbudget.feature.regular_operations.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -16,25 +16,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.hellguy39.smartbudget.model.Wallet
+import com.hellguy39.smartbudget.feature.home.components.randomWalletBackground
 import com.hellguy39.smartbudget.ui.theme.actayWideFamily
 import com.hellguy39.smartbudget.ui.value.UiSpace
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
-import smartbudgetapp.composeapp.generated.resources.Res
-import smartbudgetapp.composeapp.generated.resources.image_beach_rocks
-import smartbudgetapp.composeapp.generated.resources.image_boat_medium
-import smartbudgetapp.composeapp.generated.resources.image_bridge
-import smartbudgetapp.composeapp.generated.resources.image_porsche_medium
 
 @Composable
-fun WalletCard(
-    wallet: Wallet,
+fun GoalCard(
+    title: String,
+    description: String,
     onClick: () -> Unit = {}
 ) {
     Surface(
@@ -63,34 +57,19 @@ fun WalletCard(
                 horizontalAlignment = Alignment.Start
             ) {
                 Text(
-                    text = wallet.name,
+                    text = title,
                     fontFamily = actayWideFamily(),
                     color = Color.White,
                     style = MaterialTheme.typography.headlineSmall
                 )
                 Spacer(Modifier.weight(1f))
                 Text(
-                    text = wallet.balance,
-                    fontFamily = actayWideFamily(),
-                    color = Color.White,
-                    style = MaterialTheme.typography.headlineSmall
-                )
-                Text(
-                    modifier = Modifier.alpha(0.5f),
-                    text = wallet.number,
-                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier,
+                    text = description,
+                    style = MaterialTheme.typography.bodyMedium,
                     color = Color.White
                 )
             }
         }
     }
-}
-
-fun randomWalletBackground() : DrawableResource {
-    return listOf(
-        Res.drawable.image_bridge,
-        Res.drawable.image_beach_rocks,
-        Res.drawable.image_porsche_medium,
-        Res.drawable.image_boat_medium
-    ).random()
 }

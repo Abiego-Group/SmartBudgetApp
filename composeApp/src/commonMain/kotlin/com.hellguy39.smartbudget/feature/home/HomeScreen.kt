@@ -43,15 +43,17 @@ fun HomeScreen(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(
                 top = innerPadding.calculateTopPadding() + UiSpace.large,
-                bottom = innerPadding.calculateBottomPadding() + UiSpace.large,
-                start = UiSpace.large,
-                end = UiSpace.large
+                bottom = innerPadding.calculateBottomPadding() + UiSpace.large
             ),
             verticalArrangement = Arrangement.spacedBy(UiSpace.large)
         ) {
             item {
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(
+                            start = UiSpace.large,
+                            end = UiSpace.large
+                        ),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Image(
@@ -67,37 +69,50 @@ fun HomeScreen(
             }
             item {
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(
+                            start = UiSpace.large,
+                            end = UiSpace.large
+                        ),
                     horizontalArrangement = Arrangement.spacedBy(UiSpace.large)
                 ) {
                     Column {
                         Text(
+                            modifier = Modifier.alpha(0.5f),
                             text = "Доходы",
                             fontFamily = interWideFamily(),
+                            style = MaterialTheme.typography.titleMedium
                         )
                         Text(
-                            text = "text",
-                            fontFamily = actayWideFamily()
+                            text = "126.6k",
+                            fontFamily = actayWideFamily(),
+                            style = MaterialTheme.typography.headlineMedium
                         )
                     }
                     Column {
                         Text(
+                            modifier = Modifier.alpha(0.5f),
                             text = "Расходы",
-                            fontFamily = interWideFamily()
+                            fontFamily = interWideFamily(),
+                            style = MaterialTheme.typography.titleMedium
                         )
                         Text(
-                            text = "text",
-                            fontFamily = actayWideFamily()
+                            text = "156.6k",
+                            fontFamily = actayWideFamily(),
+                            style = MaterialTheme.typography.headlineMedium
                         )
                     }
                     Column {
                         Text(
+                            modifier = Modifier.alpha(0.5f),
                             text = "Доступно",
-                            fontFamily = interWideFamily()
+                            fontFamily = interWideFamily(),
+                            style = MaterialTheme.typography.titleMedium
                         )
                         Text(
-                            text = "text",
-                            fontFamily = actayWideFamily()
+                            text = "59.2k",
+                            fontFamily = actayWideFamily(),
+                            style = MaterialTheme.typography.headlineMedium
                         )
                     }
                 }
@@ -105,7 +120,11 @@ fun HomeScreen(
             item {
                 LazyRow(
                     modifier = Modifier,
-                    horizontalArrangement = Arrangement.spacedBy(UiSpace.large)
+                    horizontalArrangement = Arrangement.spacedBy(UiSpace.large),
+                    contentPadding = PaddingValues(
+                        start = UiSpace.large,
+                        end = UiSpace.large
+                    )
                 ) {
                     items(uiState.wallets) { wallet ->
                         WalletCard(wallet)
@@ -113,7 +132,13 @@ fun HomeScreen(
                 }
             }
             item {
-                Column {
+                Column(
+                    modifier = Modifier
+                        .padding(
+                            start = UiSpace.large,
+                            end = UiSpace.large
+                        )
+                ) {
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(UiSpace.medium),
                         verticalAlignment = Alignment.CenterVertically
@@ -121,7 +146,7 @@ fun HomeScreen(
                         Text(
                             text = "Транзакции",
                             fontFamily = actayWideFamily(),
-                            style = MaterialTheme.typography.titleLarge
+                            style = MaterialTheme.typography.headlineMedium
                         )
                         Text(
                             modifier = Modifier.alpha(0.5f),
