@@ -39,7 +39,7 @@ fun MainNavGraph(
                 WalletRoute()
             }
             composable(MainNavGraphScreen.RegularOperations.route) {
-                RegularOperationsRoute()
+                RegularOperationsGraph()
             }
             composable(MainNavGraphScreen.Settings.route) {
                 SettingsRoute(navigateToLogin = navigateToLogin)

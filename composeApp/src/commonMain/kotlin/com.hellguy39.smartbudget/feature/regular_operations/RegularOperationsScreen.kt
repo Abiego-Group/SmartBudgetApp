@@ -1,6 +1,7 @@
 package com.hellguy39.smartbudget.feature.regular_operations
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -45,7 +46,9 @@ import smartbudgetapp.composeapp.generated.resources.ic_other_24
 import smartbudgetapp.composeapp.generated.resources.ic_solar_wad_24
 
 @Composable
-fun RegularOperationsScreen() {
+fun RegularOperationsScreen(
+    navigateToNewGoal: () -> Unit
+) {
     Scaffold {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -124,7 +127,8 @@ fun RegularOperationsScreen() {
                         GoalCategoryItem(
                             category = "Мои цели",
                             iconRes = Res.drawable.ic_mage_goals_fill_24,
-                            color = Color(0xFFFFE5F5)
+                            color = Color(0xFFFFE5F5),
+                            onClick = {navigateToNewGoal()}
                         )
                         GoalCategoryItem(
                             category = "Инвестиции",
@@ -147,11 +151,13 @@ fun RegularOperationsScreen() {
 fun GoalCategoryItem(
     category: String,
     iconRes: DrawableResource,
-    color: Color
+    color: Color,
+    onClick: () -> Unit = {}
 ) {
     Row(
         modifier = Modifier.fillMaxWidth()
-            .padding(UiSpace.large),
+            .padding(UiSpace.large)
+            .clickable(onClick = onClick),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
