@@ -40,6 +40,9 @@ fun RegularOperationsGraph(
             }
             composable(route = RegularOperationsGraphScreen.NewGoal.route) {
                 NewGoalRoute(
+                    navigateBack = {
+                        navController.popBackStack()
+                    }
                 )
             }
         }

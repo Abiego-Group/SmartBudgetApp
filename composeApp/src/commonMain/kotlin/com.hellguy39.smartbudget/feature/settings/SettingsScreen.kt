@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -60,10 +61,7 @@ fun SettingsScreen(
             item {
                 Row(
                     modifier = Modifier.fillMaxWidth()
-                        .padding(
-                            start = UiSpace.large,
-                            end = UiSpace.large
-                        ),
+                        .padding(UiSpace.large),
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -79,15 +77,11 @@ fun SettingsScreen(
             item {
                 Row(
                     modifier = Modifier.fillMaxWidth()
-                        .padding(
-                            start = UiSpace.large,
-                            end = UiSpace.large
-                        ),
+                        .padding(UiSpace.medium),
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        modifier = Modifier.padding(UiSpace.large),
                         text = "Александр Стихин",
                         fontFamily = actayWideFamily(),
                         style = MaterialTheme.typography.headlineMedium
@@ -146,6 +140,7 @@ fun SettingsScreen(
                             )
                         }
                     }
+                    Spacer(Modifier.height(UiSpace.large))
                 }
             }
         }

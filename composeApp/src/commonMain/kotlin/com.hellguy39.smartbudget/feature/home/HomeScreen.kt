@@ -204,6 +204,9 @@ fun HomeScreen(
                         TransactionCard()
                         TransactionCard()
                         TransactionCard()
+                        TransactionCard()
+                        TransactionCard()
+                        TransactionCard()
                     }
                 }
             }
