@@ -154,37 +154,38 @@ fun GoalCategoryItem(
     color: Color,
     onClick: () -> Unit = {}
 ) {
-    Row(
-        modifier = Modifier.fillMaxWidth()
-            .padding(UiSpace.large)
-            .clickable(onClick = onClick),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(Modifier.background(color, CircleShape)) {
+    Box(Modifier.clickable(onClick = onClick)) {
+        Row(
+            modifier = Modifier.fillMaxWidth()
+                .padding(UiSpace.large),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(Modifier.background(color, CircleShape)) {
+                Icon(
+                    modifier = Modifier.padding(UiSpace.small),
+                    painter = painterResource(iconRes),
+                    contentDescription = null
+                )
+            }
+            Spacer(Modifier.width(16.dp))
+            Text(
+                text = category,
+                fontFamily = interWideFamily(),
+                fontWeight = FontWeight.SemiBold,
+                style = MaterialTheme.typography.titleMedium
+            )
+            Spacer(Modifier.weight(1f))
             Icon(
-                modifier = Modifier.padding(UiSpace.small),
-                painter = painterResource(iconRes),
+                modifier = Modifier.size(20.dp),
+                painter = painterResource(Res.drawable.ic_arrow_forward_24),
                 contentDescription = null
             )
         }
-        Spacer(Modifier.width(16.dp))
-        Text(
-            text = category,
-            fontFamily = interWideFamily(),
-            fontWeight = FontWeight.SemiBold,
-            style = MaterialTheme.typography.titleMedium
-        )
-        Spacer(Modifier.weight(1f))
-        Icon(
-            modifier = Modifier.size(20.dp),
-            painter = painterResource(Res.drawable.ic_arrow_forward_24),
-            contentDescription = null
+        HorizontalDivider(
+            modifier = Modifier.fillMaxWidth()
+                .alpha(0.5f)
+                .padding(horizontal = UiSpace.large)
         )
     }
-    HorizontalDivider(
-        modifier = Modifier.fillMaxWidth()
-            .alpha(0.5f)
-            .padding(horizontal = UiSpace.large)
-    )
 }
