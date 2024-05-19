@@ -15,7 +15,7 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun GlobalNavGraph(
     navController: NavHostController = rememberNavController()
-) {
+    ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
 
     Scaffold { innerPadding ->
@@ -27,7 +27,11 @@ fun GlobalNavGraph(
                 .padding(innerPadding)
         ) {
             composable(route = GlobalNavGraphScreen.Main.route) {
-                MainNavGraph()
+                MainNavGraph(navigateToLogin = {
+                    navController.navigate(route = GlobalNavGraphScreen.Auth.route) {
+                        popUpToCurrent(navController)
+                    }
+                })
             }
             composable(route = GlobalNavGraphScreen.Auth.route) {
                 AuthNavGraph(

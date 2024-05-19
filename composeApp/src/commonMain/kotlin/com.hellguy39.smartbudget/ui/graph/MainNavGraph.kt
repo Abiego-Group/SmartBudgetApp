@@ -10,13 +10,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.hellguy39.smartbudget.feature.home.HomeRoute
+import com.hellguy39.smartbudget.feature.home.SettingsRoute
 import com.hellguy39.smartbudget.feature.regular_operations.RegularOperationsRoute
 import com.hellguy39.smartbudget.feature.wallet.WalletRoute
 import com.hellguy39.smartbudget.ui.components.BottomNavigationBar
 
 @Composable
 fun MainNavGraph(
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    navigateToLogin: () -> Unit
 ) {
     Scaffold(
         bottomBar = {
@@ -40,7 +42,7 @@ fun MainNavGraph(
                 RegularOperationsRoute()
             }
             composable(MainNavGraphScreen.Settings.route) {
-
+                SettingsRoute(navigateToLogin = navigateToLogin)
             }
         }
     }
