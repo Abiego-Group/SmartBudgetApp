@@ -35,7 +35,8 @@ import smartbudgetapp.composeapp.generated.resources.image_porsche_medium
 @Composable
 fun WalletCard(
     wallet: Wallet,
-    onClick: () -> Unit = {}
+    onClick: () -> Unit = {},
+    image: DrawableResource = randomWalletBackground()
 ) {
     Surface(
         modifier = Modifier.size(
@@ -48,7 +49,7 @@ fun WalletCard(
         Image(
             modifier = Modifier.fillMaxSize()
                 .blur(4.dp),
-            painter = painterResource(randomWalletBackground()),
+            painter = painterResource(image),
             contentDescription = null,
             contentScale = ContentScale.Crop
         )

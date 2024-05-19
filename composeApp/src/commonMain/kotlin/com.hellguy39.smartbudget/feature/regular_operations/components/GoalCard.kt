@@ -14,6 +14,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
@@ -23,13 +24,15 @@ import androidx.compose.ui.unit.dp
 import com.hellguy39.smartbudget.feature.home.components.randomWalletBackground
 import com.hellguy39.smartbudget.ui.theme.actayWideFamily
 import com.hellguy39.smartbudget.ui.value.UiSpace
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun GoalCard(
     title: String,
     description: String,
-    onClick: () -> Unit = {}
+    onClick: () -> Unit = {},
+    image: DrawableResource = randomWalletBackground()
 ) {
     Surface(
         modifier = Modifier.size(
@@ -42,7 +45,7 @@ fun GoalCard(
         Image(
             modifier = Modifier.fillMaxSize()
                 .blur(4.dp),
-            painter = painterResource(randomWalletBackground()),
+            painter = painterResource(image),
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
